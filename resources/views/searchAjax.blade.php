@@ -2,15 +2,17 @@
 @section('content')
     <div class="row">
         <div class="col-3">
-            <h4><p class="result">
-                    <a href="/" class="btn-dark">Home</a>
-                </p></h4>
+            <h4><p class="result"></p></h4>
         </div>
         <div class="col-6">
-            <form class="form-inline " action="/search">
-                <input class="form-control mr-sm-2" type="search" name="s" placeholder="Search "
+
+            <form method="get" class="form-inline">
+                @csrf
+                <input class="form-control form-inline mr-sm-2" type="search" name="search" id="search"
+                       placeholder="Search Ajax"
                        aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchAjax">Search</button>
+
             </form>
             <table class="table table-hover table-bordered table-striped text-center table-responsive">
                 <thead>
@@ -29,10 +31,24 @@
 
 
         </div>
-        <div class="col-3">
-            <h4><p class="result">
-                    <a href="/searchAjax" class="btn-dark">Live search</a>
-                </p></h4>
-        </div>
+    </div>
+    <div class="col-3 output">
+
+    </div>
     </div>
 @endsection
+<script>
+    $(document).ready(function () {
+        $('#searchAjax').on('click', function () {
+            $.ajax({
+                url: '/tree',
+                dataType: 'json',
+                success: function (data) {
+                    $('.output').html(data)
+                }
+            })
+        })
+
+    })
+</script>
+

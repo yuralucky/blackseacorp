@@ -16,8 +16,8 @@ class EmployeesTableSeeder extends Seeder
 
         DB::table('employees')->insert([
             'name' => $faker->name,
-            'position' => 'boss',
-            'boss_id'=>$faker->numberBetween(1,20),
+            'position' => ['director ','manager','senior','junior'],
+            'boss_id'=>$faker->numberBetween(1,5),
             'date_of_employment'=>Carbon\Carbon::now(),
             'salary'=>$faker->randomFloat()
         ]);

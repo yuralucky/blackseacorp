@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/new',function (){
-    return 'new';
-});
-Route::get('/show','MainController@index');
-Route::get('/search','MainController@search');
+
+
+Route::get('/', 'MainController@treeview');
+Route::get('/search', 'MainController@search');
+Route::get('/save','MainController@save')->name('add.category');
+Route::get('/livesearch', 'MainController@searchAjax1')->name('livesearch');
+Route::get('/tree','MainController@tree');
+Route::get('/treeview','MainController@treeview');
+
