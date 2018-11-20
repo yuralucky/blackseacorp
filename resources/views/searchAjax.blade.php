@@ -39,7 +39,7 @@
 @endsection
 <script>
     $(document).ready(function () {
-        $('#searchAjax').on('click', function () {
+        $('#searchAjax.js').on('click', function () {
             $.ajax({
                 url: '/tree',
                 dataType: 'json',

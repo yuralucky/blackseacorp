@@ -3,12 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Employee extends Model
 {
-    public function scopeSearch($query,$s)
+    use Sortable;
+
+    protected $fillable = ['name', 'position', 'parent_id', 'date_of_employment', 'salary'];
+
+    public $sortable = ['id', 'name', 'salary'];
+
+//    employee has many children
+
+    public function childs()
     {
-        return $query->where('name','like','%'.$s.'%')->
-            orWhere('salary','like','%'.$s.'%');
+        $this->hasMany('App\Employee', 'parent_id', 'id');
     }
 }

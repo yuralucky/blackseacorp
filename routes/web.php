@@ -12,11 +12,19 @@
 */
 
 
+Route::resource('/item', 'ItemController');
+Route::get('/', 'ItemController@index');
+Route::get('/search', 'MainController@search')->name('search');
+Route::delete('/ajax','MainController@ajax');
+//Route::get('/searchAjax.js', 'MainController@searchAjax.js');
+//
+//Route::get('/sort', 'MainController@sort')->name('livesearch');
+//Route::get('/tree','MainController@tree');
+//Route::get('/treeview','MainController@treeview');
+//Route::post ( '/add', 'MainController@addItem' )->name('create');
+//Route::get ( '/add', function (){return view('add1');} );
+//Route::get ( '/add1', function (){return view('add1');} );
+//Route::get ( '/show1', 'MainController@show1' );
+//Route::delete('/delete/{id}','MainController@destroy')->name('delete');
 
-Route::get('/', 'MainController@treeview');
-Route::get('/search', 'MainController@search');
-Route::get('/save','MainController@save')->name('add.category');
-Route::get('/livesearch', 'MainController@searchAjax1')->name('livesearch');
-Route::get('/tree','MainController@tree');
-Route::get('/treeview','MainController@treeview');
 
