@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 
-    @include('errors')
+    @include('_partial.errors')
     {!! Form::model($item,['action'=>['ItemController@update',$item->id],'method'=>'patch']) !!}
     <div class="form-group">
         {!! Form::text('name',$item->name,['class'=>'form-control'] )!!}

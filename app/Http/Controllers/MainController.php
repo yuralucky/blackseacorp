@@ -14,9 +14,14 @@ class MainController extends Controller
     public function index()
     {
         $items = Test::all();
-        return view('show1', compact('items'));
+        return view('crud_ajax.index', compact('items'));
     }
 
+    public function index2()
+    {
+        $items = Test::all();
+        return view('index2', compact('items'));
+    }
 
     public function treeview()
     {
@@ -34,7 +39,7 @@ class MainController extends Controller
 //            ->orWhere('position', 'like', '%' . $ser . '%')
 //            ->orWhere('salary', 'like', '%' . $ser . '%')
             ->paginate(15);
-        return view('result', compact('items'));
+        return view('crud_simple.result', compact('items'));
     }
 
     public function searchAjax(Request $request)
@@ -47,21 +52,21 @@ class MainController extends Controller
 
     public function store(Request $request)
     {
-        $item=new Test($request->all());
+        $item = new Test($request->all());
         $item->save();
-        return back();
+        return response()->json($item);
+//        return response($item);
     }
 
-    public function ajax($id)
+    public function ajax()
     {
-        Test::destroy($id);
-        return back()->with('success','Item deleted');
+         return back();
     }
 
     public function show1()
     {
-        $items=Test::all();
-        return view('show1',compact('items'));
+        $items = Test::all();
+        return view('show1', compact('items'));
     }
 
 

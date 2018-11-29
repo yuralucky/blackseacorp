@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-    @include('errors')
+    @include('_partial.errors')
 
     <div class=" table-responsive">
 

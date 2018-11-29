@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function index()
     {
         $items = Test::all();
-        return view('index', compact('items'));
+        return view('crud_simple.index', compact('items'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('crud_simple.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class ItemController extends Controller
     public function show($id)
     {
         $item = Test::findOrFail($id);
-        return view('show', compact('item'));
+        return view('crud_simple.show', compact('item'));
     }
 
     /**
@@ -65,7 +65,7 @@ class ItemController extends Controller
     public function edit($id)
     {
         $item = Test::findOrFail($id);
-        return view('edit', compact('item'));
+        return view('crud_simple.edit', compact('item'));
     }
 
     /**

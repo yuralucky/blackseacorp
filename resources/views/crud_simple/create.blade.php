@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-    @include('errors')
+    @include('_partial.errors')
     {!! Form::open(['action'=>'ItemController@store','method'=>'post']) !!}
     <div class="form-group">
         {!! Form::text('name',null,['class'=>'form-control'] )!!}

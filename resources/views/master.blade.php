@@ -5,27 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{--Jquery--}}
-    <script src="{{asset('js/app.js')}}"></script>
+    {{--<script src="{{asset('js/app.js')}}"></script>--}}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('css/tree.css')}}">
+    {{--<link rel="stylesheet" href="{{asset('css/tree.css')}}">--}}
     <!-- Optional JavaScript  for treview-->
     {{--<script src="{{asset('js/bootstrap-treeview.min.js')}}"></script>--}}
 
     {{--Optional bootsrap style for treeview--}}
-    <link rel="stylesheet" href="{{asset('css/bootstrap-treeview.min.cs')}}">
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
+    {{--<link rel="stylesheet" href="{{asset('css/bootstrap-treeview.min.cs')}}">--}}
+
     <title>BlackSeaCorporation</title>
+    <!-- token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
@@ -38,7 +35,7 @@
     <div class="collapse navbar-collapse nav-fill" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a class="nav-link" href="/table">Admin table <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index1">Admin table <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
 
@@ -72,9 +69,18 @@
     @yield('content')
     <div id="treeview"></div>
 </div>
-<script>
-
-</script>
-
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="{{asset('js/delAjax.js')}}"></script>
+<script src="{{asset('js/addAjax.js')}}"></script>
 </body>
 </html>
