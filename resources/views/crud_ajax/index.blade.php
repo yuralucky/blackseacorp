@@ -1,13 +1,14 @@
 @extends('master')
 @section('content')
     @include('_partial.errors')
-        <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Add new
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -25,7 +26,7 @@
                 </div>
                 <div class="modal-footer">
 
-                    <button type="button" class="btn btn-primary addNew" >Add New</button>
+                    <button type="button" class="btn btn-primary addNew">Add New</button>
                 </div>
             </div>
         </div>
@@ -42,32 +43,25 @@
                 <th>Show Edit Delete</th>
             </tr>
             </thead>
+
+
+            <tbody>
             @foreach($items as $item)
+                <tr class="item{{$item->id}}">
+                    <th>{{$item->id}}</th>
+                    <th>{{$item->name}}</th>
+                    <th>{{$item->parent_id}}</th>
 
-                <tbody>
-                <th>{{$item->id}}</th>
-                <th>{{$item->name}}</th>
-                <th>{{$item->parent_id}}</th>
-                <th>
+                    <th>
+                        <form >
+                            @csrf
+                            <button type="button" class="btn  btn-success delete_ajax" value="{{$item->id}}">Delete</button>
+                        </form>
+                    </th>
 
-                    {{Form::open(['method'=>'DELETE'])}}
-                    {{--@method('delete')--}}
-                    {{Form::button('Delete',['class'=>'btn btn-block btn-danger send'])}}
-
-                    {{Form::close()}}
-                </th>
-                <th>
-                    <form action="" method="post">
-                        {{ method_field('Delete') }}
-                        {{ csrf_field() }}
-                        <input type="submit" class="btn-success send">
-                    </form>
-                </th>
-                <th>
-                    <a href="/ajax" class="btn btn-success btn-block ">Send Ajax</a>
-                </th>
-                </tbody>
+                </tr>
             @endforeach
+            </tbody>
         </table>
     </div>
 

@@ -18,6 +18,7 @@ Route::get('/search', 'MainController@search')->name('search');
 Route::get('/ajax','MainController@ajax')->name('ajax');
 Route::get ( '/index1', 'MainController@index' );
 Route::post ( '/index1', 'MainController@store' );
+Route::delete ( '/index1', 'MainController@delete' );
 
 
 

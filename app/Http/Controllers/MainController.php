@@ -55,13 +55,10 @@ class MainController extends Controller
         $item = new Test($request->all());
         $item->save();
         return response()->json($item);
-//        return response($item);
+
     }
 
-    public function ajax()
-    {
-         return back();
-    }
+
 
     public function show1()
     {
@@ -69,5 +66,10 @@ class MainController extends Controller
         return view('show1', compact('items'));
     }
 
+    public function delete(Request $request)
+    {
+        $item = Test::findOrFail($request->input('id'))->delete();
+        return \response()->json('Item deleted');
+    }
 
 }

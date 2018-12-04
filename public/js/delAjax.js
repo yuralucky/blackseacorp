@@ -5,18 +5,21 @@ $(document).ready(function () {
         }
     });
 
-    $('.send').click(function (e) {
-
-        e.preventDefault();
-        let id=44;
+    $('.delete_ajax').click(function (e) {
+        let id = $(this).val();
         $.ajax({
-            type: 'GET',
-            url:'/ajax',
-            data:{id:id},
-            success:function () {
-               console.log('oj')
+            type: 'DELETE',
+            url: '/index1',
+            data: {id: id},
+            success: function () {
+                $('.item'+id).remove();
             },
+            error:function () {
+                console.log('No')
+            }
+
 
         })
+
     })
 })
